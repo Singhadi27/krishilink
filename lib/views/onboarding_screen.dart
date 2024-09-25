@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:localvue/views/auth/login_signup.dart';
 import 'package:get/get.dart';
 
-import '../homepage/home_page.dart';
+import '../homepage/krishilinkHomepage.dart';
 import '../terms_widget.dart';
 
 class OnBoardingScreen extends StatefulWidget {
@@ -25,7 +25,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           children: [
             Positioned.fill(
               child: Image.asset(
-                'assets/arijit_main.jpeg',
+                'assets/onboardFarmer2.png',
                 fit: BoxFit.cover,
               ),
             ),
@@ -36,9 +36,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 children: [
                   SizedBox(height: 50),
                   Text(
-                    "Welcome to LocalVue!",
+                    "Welcome to KrishiLink",
                     style: TextStyle(
-                      color: Colors.deepOrange,
+                      color: Colors.green,
                       fontSize: 35,
                       fontWeight: FontWeight.w800,
                       fontFamily: 'YourCustomFont', // Replace 'YourCustomFont' with the name of your custom font
@@ -47,9 +47,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
 
                   SizedBox(height: 5),
                   Text(
-                    "Live! don't just exist",
+                    "Connecting Farmers, Empowering Markets",
                     style: TextStyle(
-                      color: Colors.deepOrange,
+                      color: Colors.lightGreen,
                       fontSize: 14,
                       fontWeight: FontWeight.w600,
                     ),
@@ -142,7 +142,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                               style: TextStyle(
                                 fontSize: 17,
                                 fontWeight: FontWeight.w500,
-                                color: Colors.white60,
+                                color: Colors.white,
                               ),
                             ),
                             value: acceptedTerms,
@@ -164,7 +164,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                                   : null,
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: isButtonEnabled
-                                    ? Colors.black
+                                    ? Colors.lightGreen
                                     : Colors.grey, // Change color to grey[900]
                                 elevation: 15,
                                 shape: RoundedRectangleBorder(

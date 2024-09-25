@@ -76,7 +76,7 @@ class _LoginViewState extends State<LoginView> {
                     ? Container(
                   child: myText(
                     text:
-                    'Welcome, Please Sign up to see events and classes from your friends.',
+                    'Welcome, Please Sign up',
                     style: GoogleFonts.roboto(
                       letterSpacing: 0,
                       fontSize: 18,
@@ -88,7 +88,7 @@ class _LoginViewState extends State<LoginView> {
                     : Container(
                   child: myText(
                     text:
-                    'Welcome back, Please Sign in and continue your journey with us.',
+                    'Welcome back, Please Sign in',
                     style: GoogleFonts.roboto(
                       letterSpacing: 0,
                       fontSize: 18,
@@ -169,12 +169,12 @@ class _LoginViewState extends State<LoginView> {
                   text: 'adityassingh6513@gmail.com',
                   validator: (String input){
                     if(input.isEmpty){
-                      Get.snackbar('Warning', 'Email is required.',colorText: Colors.white,backgroundColor: Colors.orange[900]);
+                      Get.snackbar('Warning', 'Email is required.',colorText: Colors.white,backgroundColor: Colors.green);
                       return '';
                     }
 
                     if(!input.contains('@')){
-                      Get.snackbar('Warning', 'Email is invalid.',colorText: Colors.white,backgroundColor: Colors.orange[900]);
+                      Get.snackbar('Warning', 'Email is invalid.',colorText: Colors.white,backgroundColor: Colors.green);
                       return '';
                     }
                   },
@@ -189,12 +189,12 @@ class _LoginViewState extends State<LoginView> {
                   text: 'password',
                   validator: (String input){
                     if(input.isEmpty){
-                      Get.snackbar('Warning', 'Password is required.',colorText: Colors.white,backgroundColor: Colors.orange[900]);
+                      Get.snackbar('Warning', 'Password is required.',colorText: Colors.white,backgroundColor: Colors.green);
                       return '';
                     }
 
                     if(input.length <6){
-                      Get.snackbar('Warning', 'Password should be 6+ characters.',colorText: Colors.white,backgroundColor: Colors.orange[900]);
+                      Get.snackbar('Warning', 'Password should be 6+ characters.',colorText: Colors.white,backgroundColor: Colors.green);
                       return '';
                     }
                   },
@@ -220,7 +220,7 @@ class _LoginViewState extends State<LoginView> {
                             ),
 
                             MaterialButton(
-                              color: Colors.orange[900],
+                              color: Colors.green,
                               onPressed: (){
                                  authController.forgetPassword(forgetEmailController.text.trim());
                               },minWidth: double.infinity,child: const Text("Sent"),)
@@ -260,7 +260,7 @@ class _LoginViewState extends State<LoginView> {
                 print('Login button pressed');
               },
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.orange[900]), // Set button color to orange[900]
+                backgroundColor: MaterialStateProperty.all(Colors.green), // Set button color to orange[900]
                 elevation: MaterialStateProperty.all(10), // Add elevation for shadow effect
                 shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))), // Set border radius
               ),
@@ -318,151 +318,140 @@ class _LoginViewState extends State<LoginView> {
 
   Widget SignUpWidget(){
     return SingleChildScrollView(
-        child: Column(
-          children: [
-            myTextField(
-                bool: false,
-                icon: 'assets/mail.png',
-                text: 'Email',
-                validator: (String input){
-                  if(input.isEmpty){
-                    Get.snackbar('Warning', 'Email is required.',colorText: Colors.white,backgroundColor: Colors.orange[900]);
-                    return '';
-                  }
-
-                  if(!input.contains('@')){
-                    Get.snackbar('Warning', 'Email is invalid.',colorText: Colors.white,backgroundColor: Colors.orange[900]);
-                    return '';
-                  }
-                },
-                controller: emailController
-            ),
-            SizedBox(
-              height: Get.height * 0.02,
-            ),
-            myTextField(
-                bool: true,
-                icon: 'assets/lock.png',
-                text: 'password',
-                validator: (String input){
-                  if(input.isEmpty){
-                    Get.snackbar('Warning', 'Password is required.',colorText: Colors.white,backgroundColor: Colors.orange[900]);
-                    return '';
-                  }
-
-                  if(input.length <6){
-                    Get.snackbar('Warning', 'Password should be 6+ characters.',colorText: Colors.white,backgroundColor: Colors.orange[900]);
-                    return '';
-                  }
-                },
-                controller: passwordController
-            ),
-            SizedBox(
-              height: Get.height * 0.02,
-            ),
-            myTextField(
-                bool: false,
-                icon: 'assets/lock.png',
-                text: 'Re-enter password',
-                validator: (input){
-                  if(input != passwordController.text.trim()){
-                    Get.snackbar('Warning', 'Confirm Password is not same as password.',colorText: Colors.white,backgroundColor: Colors.blue);
-                    return '';
-                  }
-                },
-                controller: confirmPasswordController
-            ),
-            Obx(() => authController.isLoading.value? const Center(child: CircularProgressIndicator(),):Container(
-              height: 50,
-              margin: EdgeInsets.symmetric(vertical: Get.height * 0.04),
-              width: Get.width,
-              child: ElevatedButton(
-                onPressed: () {
-                  if (!formKey.currentState!.validate()) {
-                    return;
-                  }
-
-                  authController.signUp(email:emailController.text.trim(),password: passwordController.text.trim());
-                  // Perform signup action here
-                  print('Sign Up button pressed');
-                },
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.orange[900]), // Set button color to orange[900]
-                  elevation: MaterialStateProperty.all(10), // Add elevation for shadow effect
-                  shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))), // Set border radius
+      child: Column(
+        children: [
+          myTextField(
+            bool: false,
+            icon: 'assets/mail.png',
+            text: 'Email',
+            validator: (String input) {
+              if(input.isEmpty){
+                Get.snackbar('Warning', 'Email is required.', colorText: Colors.white, backgroundColor: Colors.green);
+                return '';
+              }
+              if(!input.contains('@')){
+                Get.snackbar('Warning', 'Email is invalid.', colorText: Colors.white, backgroundColor: Colors.green);
+                return '';
+              }
+            },
+            controller: emailController,
+          ),
+          SizedBox(
+            height: Get.height * 0.02,
+          ),
+          myTextField(
+            bool: true,
+            icon: 'assets/lock.png',
+            text: 'password',
+            validator: (String input) {
+              if(input.isEmpty){
+                Get.snackbar('Warning', 'Password is required.', colorText: Colors.white, backgroundColor: Colors.green);
+                return '';
+              }
+              if(input.length < 6){
+                Get.snackbar('Warning', 'Password should be 6+ characters.', colorText: Colors.white, backgroundColor: Colors.green);
+                return '';
+              }
+            },
+            controller: passwordController,
+          ),
+          SizedBox(
+            height: Get.height * 0.02,
+          ),
+          myTextField(
+            bool: false,
+            icon: 'assets/lock.png',
+            text: 'Re-enter password',
+            validator: (input){
+              if(input != passwordController.text.trim()){
+                Get.snackbar('Warning', 'Confirm Password is not same as password.', colorText: Colors.white, backgroundColor: Colors.green);
+                return '';
+              }
+            },
+            controller: confirmPasswordController,
+          ),
+          SizedBox(
+            height: Get.height * 0.02,
+          ),
+          // Section to choose between Farmer and Trader
+          Column(
+            children: [
+              myText(
+                text: 'Sign up as:',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.black,
                 ),
-                child: const Text('Sign Up',
-                  style:TextStyle(
-                      fontSize: 15,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w500
-                  ),),
               ),
-
-            )),
-
-            myText(
-              text: 'Or Connect With',
-              style: TextStyle(
-                fontSize: Get.height * 0.025,
-              ),
-            ),
-            SizedBox(
-              height: Get.height * 0.01,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                socialAppsIcons(
-                    text: 'assets/fb.png',
-                    onPressed: (){
-                    }
-                ),
-
-                socialAppsIcons(
-                    text: 'assets/google.png',
-                    onPressed: (){
-                    }
-                ),
-              ],
-            ),
-            SizedBox(
-              height: Get.height * 0.02,
-            ),
-            SizedBox(
-                width: Get.width * 0.8,
-                child: RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(children: [
-                    const TextSpan(
-                        text:
-                        'By signing up, you agree our ',
-                        style: TextStyle(
-                            color: Color(0xff262628),
-                            fontSize: 12)),
-                    TextSpan(
-                      text: 'terms, Data policy and cookies policy',
-                      style: const TextStyle(
-                        color: Color(0xff262628),
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          // Navigate to the terms and uses page
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const TermsOfUsePage(),
-                            ),
-                          );
-                        },
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Radio(
+                    value: 0,
+                    groupValue: selectedRadio,
+                    onChanged: (val) {
+                      setSelectedRadio(val as int);
+                    },
+                    activeColor: Colors.green,
+                  ),
+                  myText(
+                    text: 'Farmer',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: AppColors.black,
                     ),
-                  ]),
-                )),
-          ],
-        )
+                  ),
+                  Radio(
+                    value: 1,
+                    groupValue: selectedRadio,
+                    onChanged: (val) {
+                      setSelectedRadio(val as int);
+                    },
+                    activeColor: Colors.green,
+                  ),
+                  myText(
+                    text: 'Trader',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: AppColors.black,
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          Obx(() => authController.isLoading.value ? const Center(child: CircularProgressIndicator(),) : Container(
+            height: 50,
+            margin: EdgeInsets.symmetric(vertical: Get.height * 0.04),
+            width: Get.width,
+            child: ElevatedButton(
+              onPressed: () {
+                if (!formKey.currentState!.validate()) {
+                  return;
+                }
 
+                authController.signUp(email: emailController.text.trim(), password: passwordController.text.trim());
+                // Perform signup action here
+                print('Sign Up button pressed');
+              },
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.green), // Set button color to green
+                elevation: MaterialStateProperty.all(10), // Add elevation for shadow effect
+                shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))), // Set border radius
+              ),
+              child: const Text('Sign Up',
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.white,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
+          )),
+        ],
+      ),
     );
   }
+
 }

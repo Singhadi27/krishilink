@@ -10,10 +10,11 @@ import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 //import '../views/bottom_nav_bar/bottom_bar_view.dart';
-import 'package:localvue/profile/add_profile.dart';
+
 import 'package:path/path.dart' as Path;
 
-import '../homepage/home_page.dart';
+
+import '../homepage/krishilinkHomepage.dart';
 
 
 class AuthController extends GetxController {
@@ -50,7 +51,7 @@ class AuthController extends GetxController {
       isLoading(false);
 
       /// Navigate user to profile screen
-      Get.to(() => ProfileScreen());
+      Get.to(() => HomePage());
     }).catchError((e) {
       /// print error information
       print("Error in authentication $e");
